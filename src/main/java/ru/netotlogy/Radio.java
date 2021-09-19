@@ -12,23 +12,27 @@ public class Radio {
     public void setNumberStation(int newNumberStation) { // тут задаем значение станции
         if (newNumberStation < minNumberStation) {
             return;
+        }if (newNumberStation > maxNumberStation) {
+            numberStation = maxNumberStation;
+        }else {
+            numberStation = newNumberStation;
         }
-        if (newNumberStation > maxNumberStation) {
+    }
+    public int getNumberStation() { // тут отдаём значение станции
+        return numberStation;}
+
+    public void setСurrentVolume(int newСurrentVolume) { // тут задаем значение станции
+        if (newСurrentVolume < minCurrentVolume) {
             return;
         }
-        numberStation = newNumberStation;
+        if (newСurrentVolume > maxCurrentVolume) {
+            currentVolume = maxCurrentVolume;
+        } else {
+        currentVolume = newСurrentVolume;}
 
     }
 
-    public int getNumberStation() { // тут отдаём значение станции
-        return numberStation;
-    }
-
-    public void setСurrentVolume(int newСurrentVolume) { // тут задаем значение громкости
-        currentVolume = newСurrentVolume;
-    }
-
-    public int getСurrentVolume() { // тут отдаём значение громкости
+    public int getСurrentVolume() { // тут отдаём значение станции
         return currentVolume;
     }
 
@@ -48,9 +52,10 @@ public class Radio {
     public void decreaseNumberStation() { // тут переключаем на предыдущую станцию
         if (numberStation > minNumberStation) {
             numberStation = numberStation - 1;
-        }if (numberStation == minNumberStation) {
+        }
+        if (numberStation == minNumberStation) {
             numberStation = maxNumberStation;
-    }
+        }
     }
 
     public void increaseCurrentVolume() { // тут увеличиваем громкость
