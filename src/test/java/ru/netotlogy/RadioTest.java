@@ -16,6 +16,7 @@ class RadioTest {
         int actual = rad.getNumberStation();
         assertEquals(expected, actual);
     }
+
     @Test // тест на Сеттер для номера станции №2
     public void shouldSetSmallerNumberStation() {
         Radio rad = new Radio();
@@ -24,6 +25,7 @@ class RadioTest {
         int actual = rad.getNumberStation();
         assertEquals(expected, actual);
     }
+
     @Test // тест на Сеттер для уровня громкости №3
     public void shouldSetGreaterNumberStation() {
         Radio rad = new Radio();
@@ -41,6 +43,7 @@ class RadioTest {
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
+
     @Test // тест на Сеттер для уровня громкости №2
     public void shouldSetSmallerCurrentVolume() {
         Radio rad = new Radio();
@@ -78,6 +81,7 @@ class RadioTest {
         int actual = rad.getNumberStation();
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldIncreasePenultimateNumberStation() { // тут тестируем предпоследний номер станции
         Radio rad = new Radio();
@@ -87,21 +91,13 @@ class RadioTest {
         int actual = rad.getNumberStation();
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldIncreaseMaxNumberStation() { // тут тестируем последний номер станции
         Radio rad = new Radio();
         rad.setNumberStation(9);
         rad.increaseNumberStation();
-        int expected = 0;
-        int actual = rad.getNumberStation();
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void shouldIncreaseBiggerMaxNumberStation() { // тут тестируем номер больше максимального на входе
-        Radio rad = new Radio();
-        rad.setNumberStation(10);
-        rad.increaseNumberStation();
-        int expected = 0;
+        int expected = 9;
         int actual = rad.getNumberStation();
         assertEquals(expected, actual);
     }
@@ -125,6 +121,7 @@ class RadioTest {
         int actual = rad.getNumberStation();
         assertEquals(expected, actual);
     }
+
     @Test
 
     public void shouldIncreaseCurrentVolume() {
@@ -166,8 +163,6 @@ class RadioTest {
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
-
-
 
 
 }
