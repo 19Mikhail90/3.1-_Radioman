@@ -79,9 +79,27 @@ class RadioTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void shouldIncreaseMaxNumberStation() {
+    public void shouldIncreasePenultimateNumberStation() { // тут тестируем предпоследний номер станции
+        Radio rad = new Radio();
+        rad.setNumberStation(8);
+        rad.increaseNumberStation();
+        int expected = 9;
+        int actual = rad.getNumberStation();
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldIncreaseMaxNumberStation() { // тут тестируем последний номер станции
         Radio rad = new Radio();
         rad.setNumberStation(9);
+        rad.increaseNumberStation();
+        int expected = 0;
+        int actual = rad.getNumberStation();
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldIncreaseBiggerMaxNumberStation() { // тут тестируем номер больше максимального на входе
+        Radio rad = new Radio();
+        rad.setNumberStation(10);
         rad.increaseNumberStation();
         int expected = 0;
         int actual = rad.getNumberStation();
