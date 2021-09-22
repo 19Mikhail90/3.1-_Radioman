@@ -45,11 +45,9 @@ public class Radio {
     }
 
     public void increaseNumberStation() { // тут переключаем на след станцию
-        if (numberStation == maxNumberStation) {
-            numberStation = maxNumberStation;
-        }
         if (numberStation < maxNumberStation) {
             numberStation = numberStation + 1;
+        }else {numberStation = minNumberStation;
         }
     }
 
