@@ -1,6 +1,5 @@
 package ru.netotlogy;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -113,6 +112,16 @@ class RadioTest {
     }
 
     @Test
+    public void shouldDecreasePenultimateNumberStation() { // тут тестируем второй номер станции
+        Radio rad = new Radio();
+        rad.setNumberStation(1);
+        rad.decreaseNumberStation();
+        int expected = 0;
+        int actual = rad.getNumberStation();
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldDecreaseMinNumberStation() {
         Radio rad = new Radio();
         rad.setNumberStation(0);
@@ -123,7 +132,6 @@ class RadioTest {
     }
 
     @Test
-
     public void shouldIncreaseCurrentVolume() {
         Radio rad = new Radio();
         rad.setСurrentVolume(7);
@@ -134,7 +142,16 @@ class RadioTest {
     }
 
     @Test
+    public void shouldIncreasePenultimateCurrentVolume() { // тут тестируем предпоследнее переключение громкости
+        Radio rad = new Radio();
+        rad.setСurrentVolume(9);
+        rad.increaseCurrentVolume();
+        int expected = 10;
+        int actual = rad.getСurrentVolume();
+        assertEquals(expected, actual);
+    }
 
+    @Test
     public void shouldIncreaseMaxCurrentVolume() {
         Radio rad = new Radio();
         rad.setСurrentVolume(10);
@@ -153,7 +170,15 @@ class RadioTest {
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
-
+    @Test
+    public void shouldDecreasePenultimateCurrentVolume() { //тут уменьшаем со второго значения
+        Radio rad = new Radio();
+        rad.setСurrentVolume(1);
+        rad.decreaseCurrentVolume();
+        int expected = 0;
+        int actual = rad.getСurrentVolume();
+        assertEquals(expected, actual);
+    }
     @Test
     public void shouldDecreaseMinCurrentVolume() {
         Radio rad = new Radio();
@@ -163,6 +188,4 @@ class RadioTest {
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
-
-
 }

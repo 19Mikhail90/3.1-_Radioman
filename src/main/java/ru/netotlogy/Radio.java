@@ -56,8 +56,7 @@ public class Radio {
     public void decreaseNumberStation() { // тут переключаем на предыдущую станцию
         if (numberStation > minNumberStation) {
             numberStation = numberStation - 1;
-        }
-        if (numberStation == minNumberStation) {
+        } else {
             numberStation = maxNumberStation;
         }
     }
@@ -66,19 +65,16 @@ public class Radio {
         if (currentVolume < maxCurrentVolume) {
             currentVolume = currentVolume + 1;
         }
-        if (currentVolume == maxCurrentVolume) {
-            currentVolume = maxCurrentVolume;
+        return;
         }
-    }
+
 
 
     public void decreaseCurrentVolume() { // тут уменьшаем громкость
         if (currentVolume > minCurrentVolume) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume == minCurrentVolume) {
-            currentVolume = minCurrentVolume;
-        }
+        return;
     }
 
 }
