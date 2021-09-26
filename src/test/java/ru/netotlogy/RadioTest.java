@@ -1,18 +1,20 @@
 package ru.netotlogy;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
     @Test // тест на выбор станции
-    public void shouldSetNumberStation(){
+    public void shouldSetNumberStation() {
         Radio radio = new Radio(5);
         assertEquals(5, radio.getNumberStation());
     }
-    @Test // тест на выбор станции по умолчанию. Решил его сделать так как не понятно какая станция будет без выбора определенной, например при включении устройства.
-    public void shouldSetDefaultNumberStation(){
+
+    @Test
+    // тест на выбор станции по умолчанию. Решил его сделать так как не понятно какая станция будет без выбора определенной, например при включении устройства.
+    public void shouldSetDefaultNumberStation() {
         Radio radio = new Radio();
         assertEquals(0, radio.getNumberStation());
     }
@@ -20,10 +22,10 @@ class RadioTest {
     @Test
     // тест на Сеттер для номера станции №1
     public void shouldSetterNumberStation() {
-        Radio rad = new Radio();
-        rad.setNumberStation(4);
+        Radio radio = new Radio();
+        radio.setNumberStation(4);
         int expected = 4;
-        int actual = rad.getNumberStation();
+        int actual = radio.getNumberStation();
         assertEquals(expected, actual);
     }
 
@@ -46,29 +48,30 @@ class RadioTest {
     }
 
     @Test // тест на Сеттер для уровня громкости №1
+
     public void shouldSetCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(5);
+        rad.setCurrentVolume(5);
         int expected = 5;
-        int actual = rad.getСurrentVolume();
+        int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
 
     @Test // уменьшение громкости меньше минимальной
     public void shouldSetSmallerCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(-1);
+        rad.setCurrentVolume(0);
         int expected = 0;
-        int actual = rad.getСurrentVolume();
+        int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
 
     @Test // увеличение громкости больше максимальной
     public void shouldSetGreaterCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(101);
+        rad.setCurrentVolume(100);
         int expected = 100;
-        int actual = rad.getСurrentVolume();
+        int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
 
@@ -145,7 +148,7 @@ class RadioTest {
     @Test
     public void shouldIncreaseCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(7);
+        rad.setCurrentVolume(7);
         rad.increaseCurrentVolume();
         int expected = 8;
         int actual = rad.getСurrentVolume();
@@ -155,7 +158,7 @@ class RadioTest {
     @Test
     public void shouldIncreasePenultimateCurrentVolume() { // тут тестируем предпоследнее переключение громкости
         Radio rad = new Radio();
-        rad.setСurrentVolume(99);
+        rad.setCurrentVolume(99);
         rad.increaseCurrentVolume();
         int expected = 100;
         int actual = rad.getСurrentVolume();
@@ -165,7 +168,7 @@ class RadioTest {
     @Test
     public void shouldIncreaseMaxCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(100);
+        rad.setCurrentVolume(100);
         rad.increaseCurrentVolume();
         int expected = 100;
         int actual = rad.getСurrentVolume();
@@ -175,28 +178,31 @@ class RadioTest {
     @Test
     public void shouldDecreaseCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(4);
+        rad.setCurrentVolume(4);
         rad.decreaseCurrentVolume();
         int expected = 3;
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldDecreasePenultimateCurrentVolume() { //тут уменьшаем со второго значения
         Radio rad = new Radio();
-        rad.setСurrentVolume(1);
+        rad.setCurrentVolume(1);
         rad.decreaseCurrentVolume();
         int expected = 0;
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldDecreaseMinCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(0);
+        rad.setCurrentVolume(0);
         rad.decreaseCurrentVolume();
         int expected = 0;
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
+
 }

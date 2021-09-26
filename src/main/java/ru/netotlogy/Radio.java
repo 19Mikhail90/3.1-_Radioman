@@ -1,5 +1,12 @@
 package ru.netotlogy;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int numberStation = 0;
     private int minNumberStation = 0;
@@ -10,9 +17,6 @@ public class Radio {
 
     public Radio(int numberStation) { //тут пользователь выбирает нужную станцию
         this.numberStation = numberStation;
-    }
-
-    public Radio() {
     }
 
     public void setNumberStation(int newNumberStation) { // тут задаем значение станции
@@ -30,17 +34,6 @@ public class Radio {
         return numberStation;
     }
 
-    public void setСurrentVolume(int newСurrentVolume) { // тут задаем значение станции
-        if (newСurrentVolume < minCurrentVolume) {
-            return;
-        }
-        if (newСurrentVolume > maxCurrentVolume) {
-            currentVolume = maxCurrentVolume;
-        } else {
-            currentVolume = newСurrentVolume;
-        }
-
-    }
 
     public int getСurrentVolume() { // тут отдаём значение станции
         return currentVolume;
@@ -58,7 +51,6 @@ public class Radio {
         }
     }
 
-
     public void decreaseNumberStation() { // тут переключаем на предыдущую станцию
         if (numberStation > minNumberStation) {
             numberStation = numberStation - 1;
@@ -70,10 +62,10 @@ public class Radio {
     public void increaseCurrentVolume() { // тут увеличиваем громкость
         if (currentVolume < maxCurrentVolume) {
             currentVolume = currentVolume + 1;
+        } else {
+            return;
         }
-        return;
     }
-
 
     public void decreaseCurrentVolume() { // тут уменьшаем громкость
         if (currentVolume > minCurrentVolume) {
