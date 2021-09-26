@@ -6,8 +6,14 @@ public class Radio {
     private int maxNumberStation = 9;
     private int currentVolume = 0;
     private int minCurrentVolume = 0;
-    private int maxCurrentVolume = 10;
+    private int maxCurrentVolume = 100;
 
+    public Radio(int numberStation) { //тут пользователь выбирает нужную станцию
+        this.numberStation = numberStation;
+    }
+
+    public Radio() {
+    }
 
     public void setNumberStation(int newNumberStation) { // тут задаем значение станции
         if (newNumberStation < minNumberStation) {
@@ -66,8 +72,7 @@ public class Radio {
             currentVolume = currentVolume + 1;
         }
         return;
-        }
-
+    }
 
 
     public void decreaseCurrentVolume() { // тут уменьшаем громкость
