@@ -1,14 +1,25 @@
 package ru.netotlogy;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
+    @Test // тест на выбор станции
+    public void shouldSetNumberStation(){
+        Radio radio = new Radio(5);
+        assertEquals(5, radio.getNumberStation());
+    }
+    @Test // тест на выбор станции по умолчанию. Решил его сделать так как не понятно какая станция будет без выбора определенной, например при включении устройства.
+    public void shouldSetDefaultNumberStation(){
+        Radio radio = new Radio();
+        assertEquals(0, radio.getNumberStation());
+    }
 
-
-    @Test // тест на Сеттер для номера станции №1
-    public void shouldSetNumberStation() {
+    @Test
+    // тест на Сеттер для номера станции №1
+    public void shouldSetterNumberStation() {
         Radio rad = new Radio();
         rad.setNumberStation(4);
         int expected = 4;
@@ -43,7 +54,7 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    @Test // тест на Сеттер для уровня громкости №2
+    @Test // уменьшение громкости меньше минимальной
     public void shouldSetSmallerCurrentVolume() {
         Radio rad = new Radio();
         rad.setСurrentVolume(-1);
@@ -52,11 +63,11 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    @Test // тест на Сеттер для уровня громкости №3
+    @Test // увеличение громкости больше максимальной
     public void shouldSetGreaterCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(11);
-        int expected = 10;
+        rad.setСurrentVolume(101);
+        int expected = 100;
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
@@ -144,9 +155,9 @@ class RadioTest {
     @Test
     public void shouldIncreasePenultimateCurrentVolume() { // тут тестируем предпоследнее переключение громкости
         Radio rad = new Radio();
-        rad.setСurrentVolume(9);
+        rad.setСurrentVolume(99);
         rad.increaseCurrentVolume();
-        int expected = 10;
+        int expected = 100;
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
@@ -154,9 +165,9 @@ class RadioTest {
     @Test
     public void shouldIncreaseMaxCurrentVolume() {
         Radio rad = new Radio();
-        rad.setСurrentVolume(10);
+        rad.setСurrentVolume(100);
         rad.increaseCurrentVolume();
-        int expected = 10;
+        int expected = 100;
         int actual = rad.getСurrentVolume();
         assertEquals(expected, actual);
     }
